@@ -1,0 +1,6 @@
+{
+	"appId": "tesp.app",
+	"appName": "testApp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
