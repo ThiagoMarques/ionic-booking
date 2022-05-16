@@ -1,20 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms'
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular'
 
-import { PlacesPageRoutingModule } from './places-routing.module';
+import { PlacesRoutingModule } from './places-routing.module'
 
-import { PlacesPage } from './places.page';
+import { PlacesPage } from './places.page'
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    PlacesPageRoutingModule
-  ],
-  declarations: [PlacesPage]
+  imports: [CommonModule, IonicModule, PlacesRoutingModule],
+  declarations: [PlacesPage],
 })
 export class PlacesPageModule {}
