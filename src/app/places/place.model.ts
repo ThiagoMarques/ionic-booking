@@ -1,9 +1,9 @@
-export interface Place {
+export class Place {
   constructor(
     public id: string,
     public title: string,
-    public description,
-    public: imageUrl,
-    public price: number,
+    public description: string,
+    public imageUrl: string,
+    public price: number
   ) {}
 }

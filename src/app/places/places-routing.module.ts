@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-import { PlacesPage } from './places.page'
+import { PlacesPage } from './places.page';
 
 const routes: Routes = [
   {
@@ -13,67 +13,51 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: () =>
-              import('./discover/discover.module').then(
-                (m) => m.DiscoverPageModule,
-              ),
+            loadChildren: () => import('./discover/discover.module').then(m => m.DiscoverPageModule)
           },
           {
             path: ':placeId',
-            loadChildren: () =>
-              import('./discover/place-detail/place-detail.module').then(
-                (m) => m.PlaceDetailPageModule,
-              ),
-          },
-        ],
+            loadChildren: () => import('./discover/place-detail/place-detail.module').then(m => m.PlaceDetailPageModule)
+          }
+        ]
       },
       {
         path: 'offers',
         children: [
           {
             path: '',
-            loadChildren: () =>
-              import('./offers/offers.module').then((m) => m.OffersPageModule),
+            loadChildren: () => import('./offers/offers.module').then(m => m.OffersPageModule)
           },
           {
             path: 'new',
-            loadChildren: () =>
-              import('./offers/new-offer/new-offer.module').then(
-                (m) => m.NewOfferPageModule,
-              ),
+            loadChildren: () => import('./offers/new-offer/new-offer.module').then(m => m.NewOfferPageModule)
           },
           {
             path: 'edit/:placeId',
-            loadChildren: () =>
-              import('./offers/edit-offer/edit-offer.module').then(
-                (m) => m.EditOfferPageModule,
-              ),
+            loadChildren: () => import('./offers/edit-offer/edit-offer.module').then(m => m.EditOfferPageModule)
           },
           {
             path: ':placeId',
-            loadChildren: () =>
-              import('./offers/offer-booking/offer-booking.module').then(
-                (m) => m.OfferBookingPageModule,
-              ),
-          },
-        ],
+            loadChildren: () => import('./offers/offer-bookings/offer-bookings.module').then(m => m.OfferBookingsPageModule)
+          }
+        ]
       },
       {
         path: '',
         redirectTo: '/places/tabs/discover',
-        pathMatch: 'full',
-      },
-    ],
+        pathMatch: 'full'
+      }
+    ]
   },
   {
     path: '',
     redirectTo: '/places/tabs/discover',
-    pathMatch: 'full',
-  },
-]
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class PlacesRoutingModule {}
