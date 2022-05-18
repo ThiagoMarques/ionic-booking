@@ -1,5 +1,7 @@
 import { Component } from '@angular/core'
+import { Router } from '@angular/router'
 import { MenuController } from '@ionic/angular'
+import { AuthService } from './auth/auth.service'
 import { PlacesService } from './places/places.service'
 
 @Component({
@@ -8,8 +10,14 @@ import { PlacesService } from './places/places.service'
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private menuCtrl: MenuController) {}
+  constructor(
+    private menuCtrl: MenuController,
+    private authService: AuthService,
+    private route: Router,
+  ) {}
   onLogout() {
-    this.menuCtrl.toggle()
+    this.authService.logout()
+    this.route.navigateByUrl('/auth')
+    // this.menuCtrl.toggle()
   }
 }
